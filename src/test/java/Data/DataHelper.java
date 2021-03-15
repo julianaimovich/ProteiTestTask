@@ -29,11 +29,11 @@ public class DataHelper {
     }
 
     public static UserData getUserWithUppercaseEmail () {
-        return new UserData("TEST@PROTEI.RU", validPassword, faker.name().firstName(), "Женский",1, 2);
+        return new UserData("TEST@PROTEI.RU", validPassword, faker.name().firstName(), "Женский", 1, 2);
     }
 
     public static UserData getUserWithUppercasePassword () {
-        return new UserData(validEmail, "TEST", faker.name().firstName(), "Мужской",2, 3);
+        return new UserData(validEmail, "TEST", faker.name().firstName(), "Мужской", 2, 3);
     }
 
     public static UserData getUserWithInvalidName () {
