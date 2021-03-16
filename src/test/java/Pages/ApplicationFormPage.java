@@ -17,6 +17,7 @@ public class ApplicationFormPage {
     private SelenideElement secondRadioButton = $("[id='dataSelect22']");
     private SelenideElement thirdRadioButton = $("[id='dataSelect23']");
     private SelenideElement sendDataButton = $("[id='dataSend']");
+    private SelenideElement dataSentMessage = $(".uk-margin.uk-modal-content");
     private SelenideElement okButton = $(withText("Ok"));
     private SelenideElement userDataTable = $("[id='dataTable']");
     private SelenideElement appWrongEmailMessage = $("[id='emailFormatError']");
@@ -50,7 +51,6 @@ public class ApplicationFormPage {
         chooseCheckBox(userData);
         chooseRadioButton(userData);
         sendDataButton.click();
-        appEmailErrorCheck();
     }
 
     public void sendUserDataTwoCheckboxes(UserData userData) {
@@ -91,6 +91,7 @@ public class ApplicationFormPage {
     }
 
     public void checkDataTable (UserData userData) {
+        dataSentMessage.shouldBe(visible);
         okButton.click();
         userDataTable.getText().equals(userData.getUserEmail());
         userDataTable.getText().equals(userData.getUserName());
@@ -100,6 +101,7 @@ public class ApplicationFormPage {
     }
 
     public void checkDataTableTwoCheckboxes (UserData userData) {
+        dataSentMessage.shouldBe(visible);
         okButton.click();
         userDataTable.getText().equals(userData.getUserEmail());
         userDataTable.getText().equals(userData.getUserName());
@@ -109,6 +111,7 @@ public class ApplicationFormPage {
     }
 
     public void checkDataTableWithoutChoices (UserData userData) {
+        dataSentMessage.shouldBe(visible);
         okButton.click();
         userDataTable.getText().equals(userData.getUserEmail());
         userDataTable.getText().equals(userData.getUserName());
